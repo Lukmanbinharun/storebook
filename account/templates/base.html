@@ -1,0 +1,50 @@
+{% load crispy_forms_tags %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>
+      {% block title %}
+        
+      {% endblock title %}
+    </title>
+  </head>
+  <body>
+    <!-- As a link -->
+    <nav class="navbar navbar-light bg-info">
+      
+      <div class="">
+        {% if user.is_authenticated %}
+        <a class="btn btn-outline-primary mx-4 text-white" href="logout">Log out</a>
+        <a class="btn btn-outline-primary mx-4 text-white" href="/home/show_book">show_book</a>
+        <a class="btn btn-outline-primary mx-4 text-white" href="/home/search">search book</a>
+        
+        {% else %}
+        <a class="btn btn-outline-primary mx-4 text-white" href=" {% url 'login' %}">Log in</a>
+        <a class="btn btn-outline-success mx-4 text-white" href="{% url 'singup' %}">Sing Up</a>
+        
+        {% endif %}
+      </div>
+     
+      
+   </nav>
+
+
+    {% block body %}{% endblock body %}
+
+   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+   
+  </body>
+</html>
+
+
+
+
